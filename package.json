@@ -1,14 +1,34 @@
 {
   "name": "vtex-whoami",
-  "displayName": "vtex-whoami",
-  "description": "",
+  "displayName": "VTEX Whoami to VSCode",
+  "description": "VTEX Whoami is a VSCode extension that allows you to show VTEX account and VTEX workspace informations in the status bar.",
+  "icon": "assets/VTEX-WHOAMI.png",
   "version": "0.0.1",
+  "publisher": "milaniromulo",
+  "author": {
+		"name": "Rômulo Milani",
+		"email": "milaniromulo@gmail.com"
+	},
   "engines": {
     "vscode": "^1.75.0"
   },
-  "categories": [
-    "Other"
-  ],
+  "license": "MIT",
+	"homepage": "https://github.com/milaniromulo/vtex-whoami",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/milaniromulo/vtex-whoami.git"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"statusbar",
+		"status",
+		"workspace",
+		"VTEX",
+		"VTEX CLI",
+		"VTEX Toolbelt"
+	],
   "activationEvents": [
     "*"
   ],
