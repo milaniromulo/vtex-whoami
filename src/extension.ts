@@ -1,6 +1,6 @@
-import * as vscode from 'vscode';
-import * as fs from 'fs';
-import DataVTEX, { hasVTEXToolbelt, hasVTEXSession } from './data';
+import * as vscode from "vscode";
+import * as fs from "fs";
+import DataVTEX, { hasVTEXToolbelt, hasVTEXSession } from "./data";
 
 let myStatusBarItem: vscode.StatusBarItem;
 let accountStatusBarItem: vscode.StatusBarItem;
@@ -9,8 +9,14 @@ export function activate(context: vscode.ExtensionContext) {
   if (hasVTEXToolbelt() && hasVTEXSession()) {
     const { login, account, currentWorkspace, WORKSPACE } = DataVTEX();
 
-    myStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1000);
-    accountStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1001);
+    myStatusBarItem = vscode.window.createStatusBarItem(
+      vscode.StatusBarAlignment.Right,
+      1000
+    );
+    accountStatusBarItem = vscode.window.createStatusBarItem(
+      vscode.StatusBarAlignment.Right,
+      1001
+    );
 
     myStatusBarItem.text = `$(git-merge) ${currentWorkspace}`;
     accountStatusBarItem.text = `$(account) ${account}`;
@@ -27,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
       myStatusBarItem.tooltip = `Workspace`;
 
       accountStatusBarItem.text = `$(account) ${account}`;
-      accountStatusBarItem.tooltip = `${login}`;
+      accountStatusBarItem.tooltip = login;
     });
 
     context.subscriptions.push(myStatusBarItem);
