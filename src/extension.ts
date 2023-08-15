@@ -11,11 +11,11 @@ export function activate(context: vscode.ExtensionContext) {
 
     myStatusBarItem = vscode.window.createStatusBarItem(
       vscode.StatusBarAlignment.Right,
-      1000
+      1001
     );
     accountStatusBarItem = vscode.window.createStatusBarItem(
       vscode.StatusBarAlignment.Right,
-      1001
+      1002
     );
 
     myStatusBarItem.text = `$(git-merge) ${currentWorkspace}`;
