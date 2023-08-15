@@ -13,8 +13,8 @@ export default function DataVTEX() {
 
     return {
         login,
-        account,
-        currentWorkspace,
+        account: account ? account : "Disconnected",
+        currentWorkspace: currentWorkspace ? currentWorkspace : "Disconnected",
         WORKSPACE
     };
 }
