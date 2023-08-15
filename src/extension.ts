@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
-import DataVTEX, { hasVTEXToolbelt } from './data';
+import DataVTEX, { hasVTEXToolbelt, hasVTEXSession } from './data';
 
 let myStatusBarItem: vscode.StatusBarItem;
 let accountStatusBarItem: vscode.StatusBarItem;
 
 export function activate(context: vscode.ExtensionContext) {
-  if (hasVTEXToolbelt()) {
+  if (hasVTEXToolbelt() && hasVTEXSession()) {
     const { login, account, currentWorkspace, WORKSPACE } = DataVTEX();
 
     myStatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1000);
