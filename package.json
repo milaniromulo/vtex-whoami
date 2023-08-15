@@ -1,6 +1,6 @@
 {
-  "name": "vtex-workspace",
-  "displayName": "vtex-workspace",
+  "name": "vtex-whoami",
+  "displayName": "vtex-whoami",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -16,7 +16,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "vtex-workspace.whoami",
+        "command": "vtex-whoami.whoami",
         "category": "VTEX",
         "title": "whoami"
       }
