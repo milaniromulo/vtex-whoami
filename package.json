@@ -40,7 +40,25 @@
         "category": "VTEX",
         "title": "whoami"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vtex-whoami-sidebar",
+          "title": "VTEX Whoami",
+          "icon": "images/vtex.svg"
+        }
+      ]
+    },
+    "views": {
+      "vtex-whoami-sidebar": [
+        {
+          "id": "vtexWhoamiView",
+          "name": "VTEX Whoami View",
+          "type": "webview"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

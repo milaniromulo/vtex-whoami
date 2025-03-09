@@ -13,6 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.StatusBarAlignment.Right,
       1001
     );
+
     accountStatusBarItem = vscode.window.createStatusBarItem(
       vscode.StatusBarAlignment.Right,
       1002
@@ -36,7 +37,51 @@ export function activate(context: vscode.ExtensionContext) {
       accountStatusBarItem.tooltip = login;
     });
 
+    const whoamiViewProvider = new WhoamiViewProvider(context.extensionUri);
+
     context.subscriptions.push(myStatusBarItem);
     context.subscriptions.push(accountStatusBarItem);
+    context.subscriptions.push(
+      vscode.window.registerWebviewViewProvider(
+        "vtexWhoamiView",
+        whoamiViewProvider
+      )
+    );
+  }
+}
+
+class WhoamiViewProvider implements vscode.WebviewViewProvider {
+  private _view?: vscode.WebviewView;
+
+  constructor(private readonly _extensionUri: vscode.Uri) {}
+
+  resolveWebviewView(webviewView: vscode.WebviewView): void {
+    this._view = webviewView;
+
+    webviewView.webview.options = {
+      enableScripts: false, // desabilitando scripts por enquanto
+    };
+
+    // Adicionando um try-catch para ver se há erros
+    try {
+      webviewView.webview.html = this.getWebviewContent();
+      // console.log('WebView content set successfully');
+    } catch (error) {
+      // console.error('Error setting WebView content:', error);
+    }
+  }
+
+  private getWebviewContent(): string {
+    return `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="UTF-8">
+        </head>
+        <body>
+          <div>Teste Simples</div>
+        </body>
+      </html>
+    `;
   }
 }
